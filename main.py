@@ -9,6 +9,12 @@ import shared
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "ComfyUI"))
 
+argv = sys.argv
+sys.argv = [sys.argv[0]]
+import cuda_malloc  # noqa
+
+sys.argv = argv
+
 import modules.html  # noqa
 import modules.async_worker as worker  # noqa
 import modules.path  # noqa
